@@ -35,10 +35,9 @@ test('Clicking decrement button updates counter by - 1', () => {
     validateCounterValue(rendered, -1)
 });
 
-/*
+
 test('Clicking reset button sets counter to 0', () => {
     const rendered = render(<CounterWithButton message={"Test Message"} />);
     clickButton(rendered, "Button_Reset")
     validateCounterValue(rendered, 0)
 });
-*/
