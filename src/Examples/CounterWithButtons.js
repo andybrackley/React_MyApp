@@ -19,22 +19,24 @@ class CounterWithButton extends React.Component {
         this.setState( { counter: this.state.counter + incBy })
     }
 
-    IncCounter = () =>  {
-      this.UpdateCounterState(+1)
-    } 
-  
-    DecCounter = () => {
-      this.UpdateCounterState(-1)
-    } 
-  
+    Clear(props) {
+      var clearClicked = () => {
+        this.setState ({ counter: 0 }); 
+      }
+    
+      return (
+        <div><button data-testid="Button_Reset" onClick={clearClicked}>Reset</button></div>
+      )} 
+
     render() {
       return ( 
         <section>
-            <div id="textMessageId">{this.state.text}</div>
+            <div data-testid="Text_Message" id="textMessageId">{this.state.text}</div>
             <section>
-                <button data-testid="Button_IncCounter" onClick={this.IncCounter} style={{ verticalAlign:'middle', minWidth:100, minHeight:25 }}>+</button>
-                <div>{this.state.counter}</div>   
-                <button data-testid="Button_DecCounter" onClick={this.DecCounter} style={{ verticalAlign:'middle', minWidth:100, minHeight:25 }}>-</button>
+                <button data-testid="Button_IncCounter" onClick={() => this.UpdateCounterState(+1) } style={{ verticalAlign:'middle', minWidth:100, minHeight:25 }}>+</button>
+                <div data-testid="Text_Counter">{this.state.counter}</div>   
+                <button data-testid="Button_DecCounter" onClick={() => this.UpdateCounterState(-1) } style={{ verticalAlign:'middle', minWidth:100, minHeight:25 }}>-</button>
+                <div>{this.Clear(this.state)}</div>
             </section>
         </section>
      
