@@ -5,7 +5,6 @@ import App from './App';
 test('empty test', () => {
 
 });
-
 /*
 test('renders learn react link', () => {
   const { getByText } = render(<App />);
